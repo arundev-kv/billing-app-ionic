@@ -1,0 +1,42 @@
+
+<ion-header >
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Billing</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+
+  <ion-list>
+      
+        <ion-item>
+          <ion-label floating>Customer ID</ion-label>
+          <ion-input type="number" [(ngModel)]='details.customerId' required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label floating>Customer Name</ion-label>
+          <ion-input type="text" [(ngModel)]='details.customerName' required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Bill No.</ion-label>
+          <ion-input type="number"  [(ngModel)]='details.billNo' required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating> Bill Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY"  [(ngModel)]='details.billDate'  required></ion-datetime>
+        </ion-item>
+      
+        
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab (click)="goToBill()">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
+  
+</ion-content>
