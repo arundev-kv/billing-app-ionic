@@ -1,4 +1,5 @@
-export class Item{
+export interface Item{
+    itemId: number;
     serialNo: number;
     itemName: string;
     itemNo: number;

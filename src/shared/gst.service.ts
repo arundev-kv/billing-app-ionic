@@ -5,6 +5,7 @@ export class GstService{
     gst: number;
 
     constructor(){
+        console.log('constructor GstService');
         this.gst = 20;
     }
     setGst(gst: number){

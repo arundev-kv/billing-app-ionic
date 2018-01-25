@@ -1,3 +1,4 @@
+import { ApiService } from './../../shared/api.service';
 import { GstService } from './../../shared/gst.service';
 import { Item } from './../../shared/item';
 import { Component } from '@angular/core';
@@ -17,6 +18,11 @@ import { Details } from "../../shared/details";
   templateUrl: 'bill.html',
 })
 export class BillPage {
+
+  ionViewDidLoad() {
+    //console.log('ionViewDidLoad BillPage');
+  }
+
   count: number;
   item: Item;
   currentItems: Item[];
@@ -26,18 +32,23 @@ export class BillPage {
   netTotal: number;
 
   userDetails: Details;
-  constructor(public navCtrl: NavController, public navParams: NavParams, gstService: GstService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public gstService: GstService,
+              public apiService: ApiService) {
+    //console.log('constructor BillPage');
+
     this.currentItems=[];
     this.count=0;
 
     this.gstPercent = gstService.getGst();
     this.userDetails = navParams.data;
-    console.log(this.userDetails.customerName);
+    //console.log(this.userDetails.customerName);
   }
 
   addItem(){
     this.count = this.count+1;
-    var temp = {serialNo:this.count, itemName: '', itemNo: null, quantity: null, price: null, discount: null,amount: null};
+    var temp = {serialNo:this.count,itemId: null, itemName: '', itemNo: null, quantity: null, price: null, discount: null,amount: null};
     this.currentItems.push(temp);
   }
 
@@ -46,7 +57,7 @@ export class BillPage {
   deleteItem(item1: Item){
     
     let temp: number;
-    console.log(item1);
+    //console.log(item1);
 
     let index: number = item1.serialNo-1;
     temp = this.currentItems[index].amount;
@@ -84,7 +95,7 @@ export class BillPage {
     for(let item of this.currentItems){
       this.netTotal+=item.amount;
     }
-    console.log(this.netTotal);
+    //console.log(this.netTotal);
     this.gst = +(this.gstPercent*this.netTotal)/100;
     this.gst = +(this.gst.toFixed(2))
     this.grandTotal = this.netTotal+this.gst;

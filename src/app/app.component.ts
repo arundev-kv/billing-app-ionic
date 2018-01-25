@@ -1,15 +1,19 @@
+import { ApiService } from './../shared/api.service';
 import { SettingsPage } from './../pages/settings/settings';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TabsPage } from '../pages/tabs/tabs';
+
 import { HomePage } from "../pages/home/home";
 import { GstPage } from "../pages/gst/gst";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    ApiService
+  ]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;

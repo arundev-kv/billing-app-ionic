@@ -1,0 +1,14 @@
+{
+    "Item": [
+        {
+            "itemId" : "12",
+            "itemName": "Abcd",
+            "itemPrice": "2000"
+        },
+        {
+            "itemId" : "14",
+            "itemName": "Abcgd",
+            "itemPrice": "2000"
+        }
+    ]
+}

@@ -18,6 +18,7 @@ export class GstPage {
   gst: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gstService: GstService) {
+    console.log('constructor GstPage');
     this.gst = gstService.getGst();
   }
 
