@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 
 import { BillPage } from "../bill/bill";
 import { MyApp } from "../../app/app.component";
-import { ApiService } from "../../shared/api.service";
+//import { ApiService } from "../../shared/api.service";
 
 @Component({
   selector: 'page-home',

@@ -1,0 +1,43 @@
+
+<ion-content>
+    <ion-item>
+            <ion-label>
+                Edit Items
+            </ion-label>
+            
+            
+    </ion-item>
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary" floating>Item Id</ion-label>
+            <ion-input [(ngModel)]=tempItem.itemId></ion-input>
+        </ion-item> 
+        <ion-item>
+            <ion-label color="primary" floating>Item Name</ion-label>
+            <ion-input [(ngModel)]=tempItem.itemName></ion-input>
+        </ion-item> 
+        <ion-item>
+            <ion-label color="primary" floating>Price</ion-label>
+            <ion-input type="number" [(ngModel)]=tempItem.itemPrice></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-4>
+                    <button ion-button color="secondary"(click)="saveItem()">
+                            <ion-icon name="checkmark"></ion-icon>
+                            &nbsp; Save
+                    </button>
+                </ion-col>
+                <ion-col col-1></ion-col>
+                <ion-col col-5>
+                    <button ion-button color="danger"  (click)="cancel()">
+                            <ion-icon name="close"></ion-icon>
+                            &nbsp;  Cancel
+                    </button>
+                </ion-col>
+                <ion-col col-1></ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+</ion-content>

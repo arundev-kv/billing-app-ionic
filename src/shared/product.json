@@ -1,14 +1,40 @@
 {
     "Item": [
         {
+            "serialNumber" : "1",
             "itemId" : "12",
-            "itemName": "Abcd",
+            "itemName": "TV",
             "itemPrice": "2000"
         },
         {
+            "serialNumber" : "2",
             "itemId" : "14",
-            "itemName": "Abcgd",
-            "itemPrice": "2000"
+            "itemName": "Fridge",
+            "itemPrice": "1999"
+        },
+        {
+            "serialNumber" : "3",
+            "itemId" : "15",
+            "itemName": "Oven",
+            "itemPrice": "5999"
+        },
+        {
+            "serialNumber" : "4",
+            "itemId" : "16",
+            "itemName": "Washing Machine",
+            "itemPrice": "7450"
+        },
+        {
+            "serialNumber" : "5",
+            "itemId" : "17",
+            "itemName": "Mixi",
+            "itemPrice": "4500"
+        },
+        {
+            "serialNumber" : "6",
+            "itemId" : "18",
+            "itemName": "Grinder",
+            "itemPrice": "3999"
         }
     ]
 }

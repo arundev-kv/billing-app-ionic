@@ -8,8 +8,20 @@
 
   <ion-navbar color="primary">
     <ion-title>Bill</ion-title>
-  </ion-navbar>
 
+    <ion-buttons end>
+        <button id="cart-btn" ion-button icon-only >
+            <ion-icon name="basket"></ion-icon>
+            <ion-badge id="cart-badge" color="light" >{{this.count}}</ion-badge>
+        </button>
+      </ion-buttons>
+
+    
+         
+     
+    
+  </ion-navbar>
+  
   <ion-card>
       <ion-grid>
           <ion-row>
@@ -25,23 +37,23 @@
 </ion-header>
 
 <ion-content >
-    
   
-
-    
+    <datalist id="product">
+        <option *ngFor="let item of currentProducts" [value]="item.itemName">
+      </datalist>
   <ion-card *ngFor='let item of currentItems' (keyup)="calcAmount(item.serialNo)">
     
     <ion-card-content>
       <ion-grid>
         <ion-row>
-            <ion-col col-6>
+            <ion-col col-10>
                 <ion-item>
-                   Sl.No: {{item.serialNo}}
+                   Item: {{item.serialNo}}
                 </ion-item>
               </ion-col>
               
-              <ion-col col-2>
-                <button ion-button icon-only  primary (click)="deleteItem(item)">
+              <ion-col col-1 padding>
+                <button ion-button icon-only (click)="deleteItem(item)" color="danger">
                   <ion-icon name="trash" class="Blacked"></ion-icon>
                 </button>
               </ion-col>
@@ -50,9 +62,14 @@
           <ion-col col-12>
             <ion-item>
               <ion-label floating>Item Name</ion-label>
-              <ion-input type="text" [(ngModel)]='item.itemName'></ion-input>
+              <ion-input type="text" [(ngModel)]='item.itemName' list="product" (focusout)="onSelected(item)"></ion-input>
+              <datalist id="product">
+                <option *ngFor="let item of currentProducts" [value]="item.itemName">
+              </datalist>
+
             </ion-item>
           </ion-col>
+
           <ion-col col-12>
             <ion-item>
               <ion-label floating>Quantity</ion-label>
@@ -87,18 +104,22 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
-
-    
   
-
+  <ion-fab right bottom>
+      <button ion-fab (click)="alert()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-fab>  
 </ion-content>
+
+
 <ion-footer>
   <ion-card>
     <ion-grid>
         <ion-row>
           <ion-col col-12>
-              <button ion-button full icon-end color="primary" (click)="addItem()">Add Product</button>
-          </ion-col>
+              
+          </ion-col><button ion-button full icon-end color="primary" (click)="addProduct()">Add Product</button>
         </ion-row>
     </ion-grid>
   </ion-card>
@@ -117,7 +138,9 @@
     
       </ion-card>
     <ion-toolbar>
-      <ion-title>TOTAL:{{grandTotal}}</ion-title>
+      <ion-row>
+        <ion-title col-7>TOTAL:{{grandTotal}}</ion-title> <ion-title col-5>{{this.count}}(Items)</ion-title>
+      </ion-row>
     </ion-toolbar>
   </ion-footer>
 
